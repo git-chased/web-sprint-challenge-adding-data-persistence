@@ -7,13 +7,9 @@ const projectRouter = require('./project/router')
 const resourceRouter = require('./resource/router')
 const taskRouter = require('./task/router')
 
-server.use('/api/recipes', projectRouter)
-server.use('/api/resource', resourceRouter)
-server.use('/api/task', taskRouter)
-
-server.use('*', (req, res) => {
-    res.json({api: 'mic check'})
-})
+server.use('/api/projects', projectRouter)
+server.use('/api/resources', resourceRouter)
+server.use('/api/tasks', taskRouter)
 
 server.use((err, req, res, next) => {
     res.status(500).json({
